@@ -1,0 +1,15 @@
+//fonts
+@font-face {
+	font-family: 'Exo';
+	src: url('../fonts/Exo2.0-Thin.otf');
+}
+// base browser styles reset
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Exo', Arial, Helvetica, sans-serif;
+}
