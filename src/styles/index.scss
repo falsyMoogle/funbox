@@ -3,6 +3,9 @@
 	font-family: 'Exo';
 	src: url('../fonts/Exo2.0-Thin.otf');
 }
+// imports
+@import './base/variables';
+@import './components/Card.scss';
 // base browser styles reset
 * {
 	margin: 0;
@@ -34,8 +37,25 @@ body {
 }
 
 .flex-center {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.flex-column {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+// utils
+.title {
+	color: $white;
+	text-shadow: 0 1px 0 #000000;
+	font-size: 36px;
+	font-weight: 400;
+	margin-bottom: 23px;
 }
