@@ -13,3 +13,29 @@
 body {
 	font-family: 'Exo', Arial, Helvetica, sans-serif;
 }
+
+.App {
+	width: 100%;
+	min-height: 100vh;
+	background: #c3c3c3 url('../assets/backgrounds/main-bg.png') no-repeat;
+	background-size: cover;
+}
+
+.page-container {
+	width: 100%;
+	min-height: 100vh;
+	color: white;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0.5) 0%,
+		rgba(0, 0, 0, 5e-5) 49.88%,
+		rgba(0, 0, 0, 0.5) 100%
+	);
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
