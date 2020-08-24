@@ -9,6 +9,8 @@ function App() {
 			title: 'Сказочное заморское яство',
 			brand: 'Нямушка',
 			taste: 'с фуа-гра',
+			description: 'Печень утки разварная с артишоками.',
+			amount: 1,
 			size: '0.5',
 			options: {
 				portions: 10,
@@ -24,6 +26,8 @@ function App() {
 			title: 'Сказочное заморское яство',
 			brand: 'Нямушка',
 			taste: 'с рыбой',
+			description: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
+			amount: 29,
 			size: '2',
 			options: {
 				portions: 40,
@@ -39,6 +43,8 @@ function App() {
 			title: 'Сказочное заморское яство',
 			brand: 'Нямушка',
 			taste: 'с курой',
+			description: 'Филе цыплят с трюфелями в бульоне.',
+			amount: 0,
 			size: '5',
 			options: {
 				portions: 100,

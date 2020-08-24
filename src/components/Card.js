@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Card = ({ product }) => {
-	const { title, brand, taste, size, options } = product
+	const { title, brand, taste, description, amount, size, options } = product
 	const { count, text, info } = options.gift
+	const [selected, setSelected] = useState(false)
+	const [disabled, setDisabled] = useState(amount)
+
+	const selectHandler = () => {
+		if (!disabled) setSelected(!selected)
+	}
+
+	useEffect(() => {
+		const checkProductAmount = () => {
+			amount < 1 ? setDisabled(true) : setDisabled(false)
+		}
+		checkProductAmount()
+		return () => {
+			checkProductAmount()
+		}
+	}, [amount])
 
 	return (
-		<div className='Card'>
+		<div
+			className={`Card ${selected ? 'selected' : ''} ${
+				disabled ? 'disabled' : ''
+			}`}
+			onClick={selectHandler}
+		>
 			<div className='Card__background'>
 				<div className='Card__content'>
 					<div className='Card__content__desc'>
@@ -30,9 +51,18 @@ const Card = ({ product }) => {
 					</div>
 				</div>
 			</div>
-			<p className='Card__info'>
-				Чего сидишь? Порадуй котэ, <span>купи</span>.
-			</p>
+			<div className='Card__info'>
+				{!selected && !disabled ? (
+					<>
+						Чего сидишь? Порадуй котэ, <span onClick={selectHandler}>купи</span>
+						.
+					</>
+				) : null}
+				{selected ? description : null}
+				{disabled ? (
+					<div className='soldout'>Печалька, {taste} закончился.</div>
+				) : null}
+			</div>
 		</div>
 	)
 }

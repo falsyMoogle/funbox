@@ -3,8 +3,6 @@
 	width: 320px;
 	height: 509px;
 	margin-bottom: 50px;
-	overflow: hidden;
-
 	&__background {
 		width: 100%;
 		height: 100%;
@@ -21,6 +19,7 @@
 			0% 10%
 		);
 		border-radius: 10px;
+		transition: background-color 0.2s ease-in-out;
 	}
 	&__content {
 		width: 100%;
@@ -39,7 +38,8 @@
 		);
 		border-radius: 10px;
 		color: $gray-200;
-
+		cursor: pointer;
+		overflow: hidden;
 		&__desc {
 			position: absolute;
 			margin-top: 24px;
@@ -68,7 +68,6 @@
 				}
 			}
 		}
-
 		&__size {
 			position: absolute;
 			bottom: 15px;
@@ -86,11 +85,11 @@
 			background-color: $blue-400;
 			padding-top: 10px;
 			z-index: 10;
+			transition: background-color 0.2s ease-in-out;
 			& span:nth-child(2) {
 				font-size: 21px;
 			}
 		}
-
 		&__image {
 			position: relative;
 			bottom: -230px;
@@ -98,16 +97,126 @@
 			z-index: -1;
 		}
 	}
-
 	&__info {
 		font-family: 'Trebuchet MS';
 		width: inherit;
 		text-align: center;
+		font-size: 13px;
+		text-shadow: 0 1px 0 $black;
+		line-height: 16px;
 		margin-top: 15px;
+		& .soldout {
+			color: $yellow-200;
+		}
 		& span {
 			color: $blue-400;
 			border-bottom: 1px dashed $blue-400;
 			cursor: pointer;
+		}
+	}
+}
+
+// hover
+.Card:hover {
+	.Card {
+		&__background {
+			background-color: $blue-200;
+		}
+		&__content {
+			&__size {
+				background-color: $blue-200;
+			}
+		}
+		&__info {
+			& span {
+				color: $blue-300;
+				border-bottom: 1px dashed $blue-300;
+			}
+		}
+	}
+}
+
+// selected/active
+.selected {
+	.Card {
+		&__background {
+			background-color: $magenta-400;
+		}
+		&__content {
+			&__size {
+				background-color: $magenta-400;
+			}
+		}
+	}
+
+	// selected hover
+	&:hover {
+		.Card {
+			&__background {
+				background-color: $magenta-300;
+			}
+			&__content {
+				&__size {
+					background-color: $magenta-300;
+				}
+			}
+		}
+	}
+}
+
+// disabled
+.disabled {
+	&:after {
+		content: ' ';
+		z-index: 10;
+		display: block;
+		position: absolute;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: $white;
+		opacity: 0.5;
+		clip-path: polygon(
+			15% 0,
+			100% 0,
+			100% 20%,
+			100% 80%,
+			100% 100%,
+			0 100%,
+			0 80%,
+			0% 10%
+		);
+		cursor: default;
+	}
+	.Card {
+		&__background {
+			background-color: $muted;
+		}
+		&__content {
+			&__desc {
+				color: $muted;
+				&-brand,
+				&-taste {
+					color: $muted;
+				}
+			}
+			&__size {
+				background-color: $muted;
+			}
+		}
+	}
+	// disabled hover
+	&:hover {
+		.Card {
+			&__background {
+				background-color: $muted;
+			}
+			&__content {
+				&__size {
+					background-color: $muted;
+				}
+			}
 		}
 	}
 }
