@@ -5,6 +5,7 @@
 }
 // imports
 @import './base/variables';
+@import './components/CardList.scss';
 @import './components/Card.scss';
 // base browser styles reset
 * {
@@ -49,13 +50,4 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-}
-
-// utils
-.title {
-	color: $white;
-	text-shadow: 0 1px 0 #000000;
-	font-size: 36px;
-	font-weight: 400;
-	margin-bottom: 23px;
 }
